@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Staff index{% endblock %}
+
+{% block body %}
+    <h1>Staff index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Pseudo</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for staff in staff %}
+            <tr>
+                <td>{{ staff.pseudo }}</td>
+                <td>{{ staff.grade }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">Pas de membre du Staff</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_staff_new') }}">Ajouter un staff</a>
+{% endblock %}
